@@ -38,7 +38,7 @@ https://www.python.jp/install/install.html
 
 https://techacademy.jp/magazine/15571
 
-ターミナル画面で、以下を実行することで、pipコマンド経由でjupyterをインストールすることができます
+コマンドライン環境（Mac: ターミナル、Windows: コマンドプロンプト）で、以下を実行することで、pipコマンド経由でjupyterをインストールすることができます
 
 ```bash
 python3 --version # 3.7.5以上のPythonがインストールできていることを確認
