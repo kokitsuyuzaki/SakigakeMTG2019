@@ -30,7 +30,9 @@ remotes::install_github("rikenbit/scTGIF")
 
 講習資料は[Jupyter Notebook](https://jupyter.org)でも実装してあります
 
-手元の計算機での実行には、Python言語とJupyterのインストールが必要です
+[実行方法3](https://github.com/kokitsuyuzaki/SakigakeMTG2019#実行方法3-jupyter-notebook)のように、手元の計算機で実行したい場合は、jupyterコマンドのインストールが必要です
+
+JupyterはPythonのパッケージの一つです
 
 Pythonの言語のインストールには、以下のページなどを参考にしてください
 
@@ -84,7 +86,7 @@ Rscript exercise3/exercise3_scTGIF.R # Exercise3: scTGIFのデモ
 
 ## 実行方法3: Jupyter Notebook
 
-事前準備の段階で、PythonとJupyterが事前にインストールされている場合にのみできるやり方です
+[事前準備3](https://github.com/kokitsuyuzaki/SakigakeMTG2019#3-python言語pipjupyterのインストール任意)の段階で、jupyterコマンドが事前にインストールされている場合にのみできるやり方です
 
 ```bash
 git clone https://github.com/kokitsuyuzaki/SakigakeMTG2019
