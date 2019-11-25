@@ -2,7 +2,6 @@
 
 JSTさきがけ[多細胞]領域会議内のR講習会「Rでできる細胞間相互作用」で使用したソースコード
 
-
 ## 事前準備
 ### 1. R言語のインストール
 
@@ -16,18 +15,38 @@ Rを起動し、Rのコンソール画面で以下のプログラムをコピー
 ```R
 # CRAN
 install.packages(c("BiocManager", "remotes", "IRdisplay"),
-	repos="https://cran.ism.ac.jp/")
+    repos="https://cran.ism.ac.jp/")
 
 # Bioconductor
 BiocManager::install(c("SingleCellExperiment", "LRBase.Hsa.eg.db",
-	"MeSH.Hsa.eg.db", "GSEABase", "msigdbr"), suppressUpdates=TRUE)
+    "MeSH.Hsa.eg.db", "GSEABase", "msigdbr"), suppressUpdates=TRUE)
 
 # GitHub
 remotes::install_github("rikenbit/scTensor")
 remotes::install_github("rikenbit/scTGIF")
 ```
 
-RやRパッケージがうまくインストールできなった場合は、[Google Colaboratory](https://colab.research.google.com/notebooks/welcome.ipynb?hl=ja)でオンラインで動作確認できる環境も用意しているので、こちらをご確認ください
+### 3. Python言語、pip、Jupyterのインストール（任意）
+
+講習資料は[Jupyter Notebook](https://jupyter.org)でも実装してあります
+
+手元の計算機での実行には、Python言語とJupyterのインストールが必要です
+
+Pythonの言語のインストールには、以下のページなどを参考にしてください
+
+https://www.python.jp/install/install.html
+
+https://techacademy.jp/magazine/15571
+
+ターミナル画面で、以下を実行することで、pipコマンド経由でjupyterをインストールすることができます
+
+```bash
+python3 --version # 3.7.5以上のPythonがインストールできていることを確認
+pip3 --version # 19.3.1以上のpipコマンドがインストールできていることを確認
+pip3 install jupyter
+```
+
+もし上記の手順で、インストールがうまくいかなかった場合は、[Google Colaboratory](https://colab.research.google.com/notebooks/welcome.ipynb?hl=ja)でオンラインでJupyter Notebookの動作を確認できる環境も用意しているので、当日はこちらをご確認ください
 
 [Exercise1: Rの基本操作](https://colab.research.google.com/github/kokitsuyuzaki/SakigakeMTG2019/blob/master/exercise1/exercise1_Rintro.ipynb)
 
@@ -35,45 +54,42 @@ RやRパッケージがうまくインストールできなった場合は、[Go
 
 [Exercise3: scTGIFのデモ](https://colab.research.google.com/github/kokitsuyuzaki/SakigakeMTG2019/blob/master/exercise3/exercise3_scTGIF.ipynb)
 
-## Exercise1: Rの基本操作
+## 実行方法1: Rのコンソール画面
+
+R言語を起動後に、Rのコンソール画面で以下のプログラムをコピー&ペーストしてください
+
+```R
+download.file("https://github.com/kokitsuyuzaki/SakigakeMTG2019/archive/master.zip",
+    "SakigakeMTG2019.zip")
+unzip("SakigakeMTG2019.zip")
+setwd("SakigakeMTG2019-master")
+source("exercise1/exercise1_Rintro.R") # Exercise1: Rの基本操作
+source("exercise2/exercise2_scTensor.R") # Exercise2: scTensorのデモ
+source("exercise3/exercise3_scTGIF.R") # Exercise3: scTGIFのデモ
+```
+
+
+## 実行方法2: コマンドライン
 
 コマンドライン環境（Mac: ターミナル、Windows: コマンドプロンプト）で以下のように実行してください
 
 ```bash
-Rscript exercise1/exercise1_Rintro.R
+git clone https://github.com/kokitsuyuzaki/SakigakeMTG2019
+cd SakigakeMTG2019
+Rscript exercise1/exercise1_Rintro.R # Exercise1: Rの基本操作
+Rscript exercise2/exercise2_scTensor.R # Exercise2: scTensorのデモ
+Rscript exercise3/exercise3_scTGIF.R # Exercise3: scTGIFのデモ
 ```
 
-または、R言語を起動後に、Rのコンソール画面で以下のプログラムをコピー&ペーストしてください
 
-```R
-source("exercise1/exercise1_Rintro.R")
-```
+## 実行方法3: Jupyter Notebook
 
-
-## Exercise2: scTensorのデモ
-
-コマンドライン環境（Mac: ターミナル、Windows: コマンドプロンプト）で以下のように実行してください
+事前準備の段階で、PythonとJupyterが事前にインストールされている場合にのみできるやり方です
 
 ```bash
-Rscript exercise2/exercise2_scTensor.R
-```
-
-または、R言語を起動後に、Rのコンソール画面で以下のプログラムをコピー&ペーストしてください
-
-```R
-source("exercise2/exercise2_scTensor.R")
-```
-
-## Exercise3: scTGIFのデモ（時間が余れば）
-
-コマンドライン環境（Mac: ターミナル、Windows: コマンドプロンプト）で以下のように実行してください
-
-```bash
-Rscript exercise3/exercise3_scTGIF.R
-```
-
-または、R言語を起動後に、Rのコンソール画面で以下のプログラムをコピー&ペーストしてください
-
-```R
-source("exercise3/exercise3_scTGIF.R")
+git clone https://github.com/kokitsuyuzaki/SakigakeMTG2019
+cd SakigakeMTG2019
+jupyter notebook exercise1/exercise1_Rintro.ipynb # Exercise1: Rの基本操作
+jupyter notebook exercise2/exercise2_scTensor.ipynb # Exercise2: scTensorのデモ
+jupyter notebook exercise3/exercise3_scTGIF.ipynb # Exercise3: scTGIFのデモ
 ```
