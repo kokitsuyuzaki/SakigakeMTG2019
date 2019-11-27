@@ -126,7 +126,8 @@ G$Z
 
 ############### 配列 ###################
 # 普段はあまり使わないが、3次元以上の行列（例: テンソル）を表現する時などに
-array(1:10, dim=c(1,2,3))
+H <- array(1:10, dim=c(1,2,3))
+H[1,1,3]
 
 ############### その他 ###################
 str(G)
@@ -147,14 +148,14 @@ if(SAKIGAKE == CREST){
 }
 
 ################## 繰り返し #################
-H <- 1:20
-for(i in 1:length(H)){
-    print(H[i])
+I <- 1:20
+for(i in 1:length(I)){
+    print(I[i])
 }
 
 j <- 1
 while(j <= 20){
-    print(H[j])
+    print(I[j])
     j <- j + 1
 }
 
@@ -211,6 +212,11 @@ save.image("20160806_SAKIGAKE.RData")
 load("20160806_SAKIGAKE.RData")
 
 ############# システム関数 ##############
-system("ls")  # UNIXコマンドをRから呼び出す
+system("ls", intern=TRUE)  # UNIXコマンドをRから呼び出す
+system("whoami", intern=TRUE)  # ユーザー名
+system("pwd", intern=TRUE)  # getwd()と同じ
+system("Rscript --version", intern=TRUE)  # Rscriptのバージョン
+system("rm -rf iris*", intern=TRUE)  # irisから始めるファイルは削除
+
 # 参考
 # http://orangain.hatenablog.com/entry/20100916/1284631280
