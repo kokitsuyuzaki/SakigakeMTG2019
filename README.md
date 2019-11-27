@@ -32,7 +32,7 @@ remotes::install_github("rikenbit/scTGIF")
 
 [実行方法3](https://github.com/kokitsuyuzaki/SakigakeMTG2019#実行方法3-jupyter-notebook)のように、手元の計算機で実行したい場合は、jupyterコマンドのインストールが必要です
 
-JupyterはPythonのパッケージの一つです
+JupyterはPythonパッケージの一つです
 
 Pythonの言語のインストールには、以下のページなどを参考にしてください
 

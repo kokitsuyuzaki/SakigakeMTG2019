@@ -36,9 +36,10 @@ cellCellSetting(sce, LRBase.Hsa.eg.db, labelGermMale, names(labelGermMale))
 rks <- cellCellRanks(sce, assayNames="normcounts")
 
 # CCIテンソル分解
+set.seed(1234)
 cellCellDecomp(sce, ranks=rks$selected, assayNames="normcounts")
 
-# HTMLレポート出力（ネットに繋がっている必要有り）
+# HTMLレポート出力
 cellCellReport(sce, reducedDimNames="TSNE", assayNames="normcounts",
     title="Cell-cell interaction within Germline_Male, GSE86146",
     author="Koki Tsuyuzaki", html.open=TRUE, upper=2,
