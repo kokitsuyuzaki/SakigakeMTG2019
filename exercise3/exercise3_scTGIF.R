@@ -60,14 +60,14 @@ CPMED <- function(input){
 normcounts(sce) <- log10(CPMED(counts(sce)) + 1)
 
 # 設定（関係する情報がmetadata(sce)に登録される
-sce2 <- settingTGIF(sce, gmt, reducedDimNames="PCA",
+settingTGIF(sce, gmt, reducedDimNames="PCA",
     assayNames="normcounts")
 
 # 行列同時分解
-sce2 <- calcTGIF(sce2, rank=7)
+calcTGIF(sce, rank=7)
 
 # HTMLレポート出力（ネットに繋がっている必要有り）
-reportTGIF(sce2,
+reportTGIF(sce,
     html.open=TRUE,
     title="scTGIF Report for DistalLungEpithelium dataset",
     author="Koki Tsuyuzaki")
