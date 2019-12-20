@@ -1,6 +1,11 @@
 #############################################
 ################## scTGIF ###################
 #############################################
+# パッケージインストール
+install.packages(c("BiocManager", "remotes", "IRdisplay"), repos="http://cran.r-project.org")
+BiocManager::install(c("SingleCellExperiment", "GSEABase", "msigdbr"), suppressUpdates=TRUE)
+remotes::install_github("rikenbit/scTGIF")
+
 # パッケージロード
 library("scTGIF")
 library("SingleCellExperiment")
